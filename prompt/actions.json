@@ -1,0 +1,88 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+      "title": "Start a new dev chain and interact with it",
+      "description": "Start a chain for development purposes, and interact with it.",
+      "version": "v1.0.0"
+    },
+    "servers": [
+      {
+        "url": "https://www.example.com"
+      }
+    ],
+     "paths": {
+      "/chain": {
+        "get": {
+          "description": "Create a new agoric chain instance for development purposes. It is like local chain of Agoric but on the cloud, dedicated for the engineer who called this API.",
+          "operationId": "StartChain",
+          "deprecated": false
+        }
+      },
+      "/logs": {
+        "get": {
+          "description": "Get the logs of the dev chain from the cloud instance.",
+          "operationId": "GetLogs",
+          "parameters": [
+            {
+              "name": "containerName",
+              "in": "query",
+              "description": "The name of the container that was returned by the chain API.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "deprecated": false
+        }
+      },
+      "/agd": {
+        "get": {
+          "description": "Run agd command and interact with the chain.",
+          "operationId": "RunAgd",
+          "parameters": [
+            {
+              "name": "containerName",
+              "in": "query",
+              "description": "The name of the container that was returned by the chain API.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "agdParams",
+              "in": "query",
+              "description": "Agd parameters excluding the agd command name. For example, if use wants to get the status of the chain, this API will be called with agdParams=status. Similarly any gaiad or agd command parameters can be passed to this command.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "deprecated": false
+        }
+      },
+      "/keys": {
+        "get": {
+          "description": "Get test account keys.",
+          "operationId": "GetTestKeys",
+          "parameters": [
+            {
+              "name": "containerName",
+              "in": "query",
+              "description": "The name of the container that was returned by the chain API.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "deprecated": false
+        }
+      }
+    },
+    "components": {
+      "schemas": {}
+    }
+  }

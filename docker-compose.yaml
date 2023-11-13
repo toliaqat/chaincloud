@@ -4,9 +4,6 @@ services:
   agd:
     container_name: "${CONTAINER_NAME}"
     image: ghcr.io/agoric/agoric-3-proposals:main
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.agd.rule=Host(`agd.example.com`)"
     platform: linux/amd64
     ports:
       - 26656
