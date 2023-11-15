@@ -1,4 +1,4 @@
-# Docker Management API
+# AI Managed Chains
 
 ## Project Overview
 This is a proof of concept project that provides basic functionalities to manage docker containers of agoric blockchain.
